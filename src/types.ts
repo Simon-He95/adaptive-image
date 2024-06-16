@@ -1,5 +1,5 @@
 export interface Props {
-  src:string
-  size:number[]
-  alt?:string
+  src: string
+  size: number[]
+  alt?: string
 }

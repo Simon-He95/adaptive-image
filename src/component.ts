@@ -1,28 +1,27 @@
-import type {DefineComponent,PropType} from 'vue'
-import { defineComponent, h, onUnmounted, computed, watchEffect,  ref } from 'vue'
-import { Props } from './types'
+import type { DefineComponent, PropType } from 'vue'
+import { computed, defineComponent, h, onUnmounted, ref, watchEffect } from 'vue'
+import type { Props } from './types'
 export const AdaptiveImage = defineComponent({
-  name: 'adaptive-image',
+  name: 'AdaptiveImage',
   props: {
     src: {
       type: String,
       require: true,
-      default: ''
+      default: '',
     },
     size: {
       type: Array as PropType<number[]>,
       require: true,
-      default: () => []
+      default: () => [],
     },
     alt: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   setup(props) {
-
     if (!props.size.length)
-      throw Error('Props size is needed')
+      throw new Error('Props size is needed')
 
     const imgRef = ref<HTMLImageElement>()
 
@@ -37,7 +36,8 @@ export const AdaptiveImage = defineComponent({
         if (_img) {
           img = _img
           observer.observe(img)
-        } else if (img) {
+        }
+        else if (img) {
           observer.unobserve(img)
         }
       })
@@ -78,8 +78,8 @@ export const AdaptiveImage = defineComponent({
     return () => h('img', {
       ref: imgRef,
       src: imageSrc.value,
-      alt: props.alt
-    }
+      alt: props.alt,
+    },
     )
   },
 }) as DefineComponent<Props>

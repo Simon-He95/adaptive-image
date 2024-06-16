@@ -3,6 +3,7 @@
 <div align="center">A image component that adapts to dpr and picture size</div>
 </p>
 
+Replace the src path with a picture of the corresponding size according to the size of the picture. For example, if your size is 500, but your picture is 1000, it will automatically be replaced with a picture of 500.
 
 ## :book: Install
 ```

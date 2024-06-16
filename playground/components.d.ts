@@ -4,8 +4,6 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AdaptiveImage: typeof import('./src/components/AdaptiveImage.vue')['default']
-    Counter: typeof import('./src/components/Counter.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
   }
 }
